@@ -8,7 +8,7 @@
   </head>
   <body>
       <p>
-      Here's my first paragraph!
+      Trying my first Vega-Lite!
       </p>
       <p>
       This is an example paragraph. Anything in the <strong>body</strong>
@@ -19,21 +19,14 @@
       </div>
       <script>
 var vlSpec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {
-        "values": [
-            {"A": 10, "B": 21, "C": 2},
-            {"A": 30, "B": 20, "C": 4},
-            {"A": 25, "B": 15, "C": 6},
-            {"A": 5, "B": 30, "C": 8}
-        ]
-    },
-    "mark": "circle",
+  "data": {
+    "url": "https://uiuc-ischool-dataviz.github.io/spring2019online/week02/building_inventory.csv"},
+    "mark":"bar",
     "encoding": {
-        "x": { "field": "A", "type": "quantitative"},
-        "y": { "field": "B", "type": "quantitative"},
-        "size": { "field": "C", "type": "quantitative"}
-    }
+    "x": {"field": "Bldg Status", "type": "ordinal"},
+    "y":{"aggregate":"count"}   
+  }
+
 };
         vegaEmbed('#viz', vlSpec);
       </script>
