@@ -8,6 +8,9 @@
   </head>
   <body>
       <p>
+      Here's my first paragraph!
+      </p>
+      <p>
       This is an example paragraph. Anything in the <strong>body</strong>
       tag will appear on the page, just like this <strong>p</strong>
       tag and its contents.
@@ -15,17 +18,24 @@
       <div id="viz">
       </div>
       <script>
-          var vlSpec = {{
+var vlSpec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "data": {"url": "data/cars.json"},
-    "transform": [{"filter": {"field": "Weight_in_lbs", "lt": 3000}}],
+    "data": {
+        "values": [
+            {"A": 10, "B": 21, "C": 2},
+            {"A": 30, "B": 20, "C": 4},
+            {"A": 25, "B": 15, "C": 6},
+            {"A": 5, "B": 30, "C": 8}
+        ]
+    },
     "mark": "circle",
     "encoding": {
-        "x": {"field": "Horsepower", "type": "quantitative"},
-        "y": {"field": "Miles_per_Gallon", "type": "quantitative"}
+        "x": { "field": "A", "type": "quantitative"},
+        "y": { "field": "B", "type": "quantitative"},
+        "size": { "field": "C", "type": "quantitative"}
     }
-}};
-          vegaEmbed('#viz', vlSpec);
+};
+        vegaEmbed('#viz', vlSpec);
       </script>
   </body>
 </html>
